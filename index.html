@@ -14,62 +14,61 @@
 
 <body class="flex-column min-100-vh">
   <header class="jumbotron jumbotron-fluid">
-    <h1 class="app-title display-4 text-center currentDay"><i class="fa-solid fa-cloud"></i>Weather Dashboard</h1>
+    <h1 class="app-title display-4 text-center currentDay">Weather Dashboard</h1>
     <p class="text-center"> Search a city to see the five-day weather forecast for that location.</p>
     <div id="currentDay" class="text-center">
   </header>
 
   <div class="container" style="margin-top: 15px">
     <div class="row justify-content-md-center">
-      <div class="form-group col col-md-3">
-        <label style="margin-left: 5px">Check out weather for:</label>
+      <div class="form-group col col-md-3 p-3">
+        <h4 style="margin-left: 5px">Check out weather for:</h4>
         <input type="text" class="form-control" id="city-input" placeholder="Enter a City Name" value="">
-        <button style="margin-top: 5px" type="submit" class="btn btn-secondary" id="searchBtn">Get Weather</button>
+        <button type="submit" class="form-control btn btn-primary" id="searchBtn">Get Weather</button>
       </div>
-      <div style="background-color: lightgrey" class="col col-md-9 textcontent">
-        <h2>Results:<span id="result-text"></span></h2>
-        <img id="weather-icon" src="">
+      <div class="col col-md-9 textcontent border border-dark p-2"/>
+        <h2><span id="result-text"></span>
+        <img id="weather-icon" src=""></h2>
         <div id="temp-search-results"></div>
         <div id="wind-search-results"></div>
         <div id="hum-search-results"></div><br>
       </div>
       <div class ="col-md-3">
-        <h3>History</h3>
-        <ul id="historyList">
-          <li id="listItem"></li>
+        <ul class="list-group" id="historyList">
+          <li class="list-group-item p-0" id="listItem"></li>
         </ul>
       </div>
-      <div style="background-color: lightgrey" class="col col-md-9 textcontent">
+      <div class="col col-md-9 textcontent">
         <h4><span id="forecast-results"></span>Five Day Forecast</h4>
-        <div class ="card" style="width: 8rem; background-color: #2d6886;">
+        <div class ="futureDay">
           <p> <span id="futureday1"></span></p>
           <img id="forecast-weather-icon1" src="">
           <div id="forecast-temp-search-results1"></div>
           <div id="forecast-wind-search-results1"></div>
           <div id="forecast-hum-search-results1"></div>
         </div>
-        <div class ="card" style="width: 8rem; background-color: #2d6886;">
+        <div class ="futureDay">
           <p> <span id="futureday2"></span></p>
           <img id="forecast-weather-icon2" src="">
           <div id="forecast-temp-search-results2"></div>
           <div id="forecast-wind-search-results2"></div>
           <div id="forecast-hum-search-results2"></div>
         </div>
-        <div class ="card" style="width: 8rem; background-color: #2d6886;">
+        <div class ="futureDay">
           <p> <span id="futureday3"></span></p>
           <img id="forecast-weather-icon3" src="">
           <div id="forecast-temp-search-results3"></div>
           <div id="forecast-wind-search-results3"></div>
           <div id="forecast-hum-search-results3"></div>
         </div>
-        <div class ="card" style="width: 8rem; background-color: #2d6886;">
+        <div class ="futureDay">
           <p> <span id="futureday4"></span></p>
           <img id="forecast-weather-icon4" src="">
           <div id="forecast-temp-search-results4"></div>
           <div id="forecast-wind-search-results4"></div>
           <div id="forecast-hum-search-results4"></div>
         </div>
-        <div class ="card" style="width: 8rem; background-color: #2d6886;">
+        <div class ="futureDay">
           <p> <span id="futureday5"></span></p>
           <img id="forecast-weather-icon5" src="">
           <div id="forecast-temp-search-results5"></div>

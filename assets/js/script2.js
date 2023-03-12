@@ -5,68 +5,64 @@ var currentDate = moment().format('MMMM Do YYYY || h:mm a');
 $("#currentDay").text(currentDate);
 var btn = $("#searchBtn");
 var searchInputVal = document.querySelector('#city-input').value;
+var weather_url = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + searchInputVal + "&appid=" + api_key;
+var forecast_url = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=" + searchInputVal + "&appid=" + api_key;
 
 function getCityWeather() {
-
-    var searchInputVal = document.querySelector("#city-input").value;
-
+    $("#result-text").html(searchInputVal);
+// handle if a person tries to enter a blank field
     if (!searchInputVal) {
         console.error("please enter a city");
         return;
     }
-
-
-    $("#result-text").html(searchInputVal);
-
-    var weather_url = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + searchInputVal + "&appid=" + api_key;
-
+// fetch the API
     fetch(weather_url)
         .then(function (response) {
             return response.json();
-        })
-        .then(function (data) {
-            // console.log(data);
-            $("#result-text").text(searchInputVal + " (" + now + ")");
-            $("#weather-icon").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
-            $("#temp-search-results").text("Temp: " + data.main.temp + "°F");
-            $("#wind-search-results").text("Wind: " + data.wind.speed + " mph");
-            $("#hum-search-results").text("Humidity: " + data.main.humidity + "%");
         })
         .catch((err) => {
             console.log(err);
             $("#result-text").text(searchInputVal + " not found.");
         })
-}
+
+        showCityWeather();
+    }
+
+
+function showCityWeather(data) {
+    // console.log(data);
+    $("#result-text").text(searchInputVal + " (" + now + ")");
+    $("#weather-icon").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+    $("#temp-search-results").text("Temp: " + data.main.temp + "°F");
+    $("#wind-search-results").text("Wind: " + data.wind.speed + " mph");
+    $("#hum-search-results").text("Humidity: " + data.main.humidity + "%");
+        }
 
 function getForecast() {
-    var searchInputVal = document.querySelector("#city-input").value;
+    $("#result-text").html(searchInputVal);
 
     if (!searchInputVal) {
         console.error("please enter a city");
         return;
     }
 
-    $("#result-text").html(searchInputVal);
-
-    var forecast_url = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=" + searchInputVal + "&appid=" + api_key;
-
     fetch(forecast_url)
         .then(function (response) {
             return response.json();
         })
-        .then(function (data) {
-            $(".futureDay").addClass("card p-2");
+    }
+
+
+function showForecastWeather(data) {
+    getForecast()
+    .then( $(".futureDay").addClass("card p-2");
             $("#futureday1").text(moment().add(1, 'days').format("MM/D/YY"));
             $("#forecast-weather-icon1").attr("src", "http://openweathermap.org/img/w/" + data.list[5].weather[0].icon + ".png");
             $("#forecast-temp-search-results1").text("Temp: " + data.list[5].main.temp + "°F");
             $("#forecast-wind-search-results1").text("Wind: " + data.list[5].wind.speed + " mph");
             $("#forecast-hum-search-results1").text("Humidity: " + data.list[5].main.humidity + "%");
-        })
+        )}
 
-    fetch(forecast_url)
-        .then(function (response) {
-            return response.json();
-        })
         .then(function (data) {
             $(".futureDay").addClass("card p-2");
             $("#futureday2").text(moment().add(2, 'days').format("MM/D/YY"));

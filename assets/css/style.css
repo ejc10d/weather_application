@@ -1,5 +1,5 @@
 :root {
-    --darkblue: #2d6886;
+    --darkblue: #1d495f;
     --lightblue: #8cbfd9;
 }
 
@@ -19,7 +19,10 @@ border-width: 5px;
 }
 
 .card {
-    display: inline-block
+    display: inline-block;
+    color: white;
+    background-color: var(--darkblue);
+    height: 12rem
 }
 
 ul {
