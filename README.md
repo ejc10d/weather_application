@@ -7,7 +7,7 @@ This application is a weather application that shows the current weather for a s
 ## ScreenShot
 The following image shows the web application's appearance:
 
-This application allows a user to search for a city and get the current weather. The searches are then stored into history for the user to then click on the city to recall the weather.(./assets/img/ScreenShot.png)
+This application allows a user to search for a city and get the current weather. The searches are then stored into history for the user to then click on the city to recall the weather.[!](./assets/img/ScreenShot.png)
 
 ## Link
 Here is a [link](https://ejc10d.github.io/challenge_6/) to the deployed application.
